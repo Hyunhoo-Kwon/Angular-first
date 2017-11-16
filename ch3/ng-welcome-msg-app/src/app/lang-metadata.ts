@@ -13,5 +13,10 @@ export const LANG_METADATA = [
 		code: 'fr',
 		name: '불어',
 		msg: 'Bonjour'
+	},
+	{
+		code: 'cn',
+		name: '중국어',
+		msg: '니하오'
 	}
 ];

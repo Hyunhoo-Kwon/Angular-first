@@ -1,10 +1,6 @@
 <div id="lang-select">
-	<div class="lang-box">
-		<label *ngIf="langCode === 'ko'">선택됨</label>
-		<button type="button" (click)="setLangCode('ko')" [disabled]="langCode === 'ko'">한국어</button>
-		<label *ngIf="langCode === 'en'">선택됨</label>
-		<button type="button" (click)="setLangCode('en')" [disabled]="langCode === 'en'">영어</button>
-		<label *ngIf="langCode === 'fr'">선택됨</label>
-		<button type="button" (click)="setLangCode('fr')" [disabled]="langCode === 'fr'">프랑스</button>
+	<div class="lang-box" *ngFor="let lang of langMetadata">
+		<label *ngIf="langCode === lang.code">선택됨</label>
+		<button type="button" (click)="setLangCode(lang.code)" [disabled]="langCode === lang.code">{{lang.name}}</button>
 	</div>
 </div>

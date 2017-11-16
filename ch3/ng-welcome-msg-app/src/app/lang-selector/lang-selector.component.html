@@ -1,6 +1,7 @@
-<div id="lang-select">
-	<div class="lang-box" *ngFor="let lang of langMetadata">
-		<label *ngIf="langCode === lang.code">선택됨</label>
-		<button type="button" (click)="setLangCode(lang.code)" [disabled]="langCode === lang.code">{{lang | langSelectorBtn}}</button>
-	</div>
-</div>
+<mat-card>
+	<mat-radio-group [(ngModel)]="langCode" (change)="syncToService($event.value)">
+		<mat-radio-button *ngFor="let lang of langMetadata" [value]="lang.code">
+			{{lang | langSelectorBtn}}
+		</mat-radio-button>
+	</mat-radio-group>
+</mat-card>

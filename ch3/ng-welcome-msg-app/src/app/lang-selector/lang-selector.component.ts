@@ -15,8 +15,7 @@ export class LangSelectorComponent {
   	this.langCode = i18nSupporter.langCode;
   }
 
-  setLangCode(langCode) {
-  	this.langCode = langCode;
+  syncToService(langCode) {
   	this.i18nSupporter.langCode = langCode;
   }
 

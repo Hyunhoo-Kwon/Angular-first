@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
+import { LogLevel } from './log-level.enum';
 
 @Injectable()
 export class MySpecialLoggerService {
+	logLevel: LogLevel;
+	logs: string[] = [];
+	private readonly MAX_HISTORY_CNT: number = 100;
+	private readonly TIME_FORMAT: string = "YYYY-MM-DD HH:mm:ss.SSS"
 
-  constructor() { }
+  constructor(logLevel: LogLevel) {
+  	this.logLevel = logLevel;
+  }
 
 }

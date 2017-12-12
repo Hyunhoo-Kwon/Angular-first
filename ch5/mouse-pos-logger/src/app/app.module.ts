@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { MouseTrackZoneComponent } from './mouse-track-zone/mouse-track-zone.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MouseTrackZoneComponent
   ],
   imports: [
     BrowserModule

@@ -4,21 +4,23 @@ import * as format from 'date-fns/format';
 
 import { LOG_LEVEL_TOKEN } from './app.tokens';
 
+import { LoggerService } from './logger-service';
+
 @Injectable()
-export class MySpecialLoggerService {
-	logLevel: LogLevel;
+export class MySpecialLoggerService extends LoggerService {
+	//logLevel: LogLevel;
 	logs: string[] = [];
 	private readonly MAX_HISTORY_CNT: number = 100;
 	private readonly TIME_FORMAT: string = "YYYY-MM-DD HH:mm:ss.SSS"
 
   constructor(@Inject(LOG_LEVEL_TOKEN) logLevel: LogLevel) {
-    this.logLevel = logLevel;
+    super(logLevel);
   }
 
-  debug(msg: string) { this.log(LogLevel.DEBUG, msg); }
-  info(msg: string) { this.log(LogLevel.INFO, msg); }
-  warn(msg: string) { this.log(LogLevel.WARN, msg); }
-  error(msg: string) { this.log(LogLevel.ERROR, msg); }
+  //debug(msg: string) { this.log(LogLevel.DEBUG, msg); }
+  //info(msg: string) { this.log(LogLevel.INFO, msg); }
+  //warn(msg: string) { this.log(LogLevel.WARN, msg); }
+  //error(msg: string) { this.log(LogLevel.ERROR, msg); }
 
   log(logLevel: LogLevel, msg: string) {
   	const logMsg = this.getFormattedLogMsg(logLevel, msg);
@@ -41,9 +43,11 @@ export class MySpecialLoggerService {
   	return `[${LogLevel[logLevel]}] ${curTimestamp} - ${msg}`;
   }
 
+/*
   private isProperLogLevel(logLevel: LogLevel): boolean {
   	if(this.logLevel === LogLevel.DEBUG) return true;
   	return logLevel >= this.logLevel;
   }
+  */
 
 }

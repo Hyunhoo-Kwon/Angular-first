@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Host, Optional } from '@angular/core';
 import { MySpecialLoggerService } from '../my-special-logger.service';
+import { LoggerService } from '../logger-service';
+import { AnotherLoggerService } from '../another-logger.service';
 import { LogLevel } from '../log-level.enum';
 import { LOG_LEVEL_TOKEN } from '../app.tokens';
 
@@ -10,8 +12,11 @@ import { LOG_LEVEL_TOKEN } from '../app.tokens';
   providers: [MySpecialLoggerService, {provide: LOG_LEVEL_TOKEN, useValue:LogLevel.DEBUG}]
 })
 export class MouseTrackZoneComponent implements OnInit {
+  logger: LoggerService;
 
-  constructor(private logger: MySpecialLoggerService) { }
+  constructor(@Host() mySpecialLogger: MySpecialLoggerService, anotherLogger: AnotherLoggerService) {
+    this.logger = mySpecialLogger ? mySpecialLogger : anotherLogger;
+  }
 
   ngOnInit() {
   }

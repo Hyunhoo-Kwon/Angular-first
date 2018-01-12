@@ -9,12 +9,12 @@ import { LOG_LEVEL_TOKEN } from '../app.tokens';
   selector: 'mpl-mouse-track-zone',
   templateUrl: './mouse-track-zone.component.html',
   styleUrls: ['./mouse-track-zone.component.css'],
-  providers: [MySpecialLoggerService, {provide: LOG_LEVEL_TOKEN, useValue:LogLevel.DEBUG}]
 })
 export class MouseTrackZoneComponent implements OnInit {
   logger: LoggerService;
 
-  constructor(@Host() mySpecialLogger: MySpecialLoggerService, anotherLogger: AnotherLoggerService) {
+  constructor(@Host() @Optional() mySpecialLogger: MySpecialLoggerService
+    , anotherLogger: AnotherLoggerService) {
     this.logger = mySpecialLogger ? mySpecialLogger : anotherLogger;
   }
 

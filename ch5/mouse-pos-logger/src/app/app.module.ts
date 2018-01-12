@@ -18,7 +18,7 @@ import { LOG_LEVEL_TOKEN } from './app.tokens';
   imports: [
     BrowserModule
   ],
-  providers: [MySpecialLoggerService, {provide: LOG_LEVEL_TOKEN, useValue: LogLevel.DEBUG}],
+  providers: [MySpecialLoggerService, {provide: LOG_LEVEL_TOKEN, useValue: LogLevel.INFO}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
